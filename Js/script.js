@@ -43,3 +43,40 @@ window.addEventListener('scroll', () => {
 btnSubir.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+function iniciarBanner() {
+  const imagenes = document.querySelectorAll("#banner-fondo img");
+  if (imagenes.length === 0) return; // si la página no tiene banner, no hace nada
+
+  let actual = 0;
+
+  setInterval(() => {
+    imagenes[actual].classList.remove("activa");
+    actual = (actual + 1) % imagenes.length;
+    imagenes[actual].classList.add("activa");
+  }, 5000); // cambia cada 5 segundos
+}
+
+async function cargarBanner() {
+  const contenedor = document.querySelector("#banner");
+  if (!contenedor) return;
+
+  const respuesta = await fetch("banner.html");
+  contenedor.innerHTML = await respuesta.text();
+  iniciarBanner(); // arranca DESPUÉS de que el banner ya existe en la página
+}
+
+cargarBanner();
+
+async function cargarPreguntas() {
+  const contenedor = document.querySelector("#preguntas");
+  if (!contenedor) return;
+
+  const respuesta = await fetch("./preguntas.html");
+  contenedor.innerHTML = await respuesta.text();
+
+  iniciarPreguntas();
+}
+
+cargarPreguntas();
+

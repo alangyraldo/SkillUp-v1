@@ -44,6 +44,8 @@ btnSubir.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+// Alan banner contactanos
+
 function iniciarBanner() {
   const imagenes = document.querySelectorAll("#banner-fondo img");
   if (imagenes.length === 0) return; // si la página no tiene banner, no hace nada
@@ -66,7 +68,8 @@ async function cargarBanner() {
   iniciarBanner(); // arranca DESPUÉS de que el banner ya existe en la página
 }
 
-cargarBanner();
+
+// preguntas contactanos Dianita
 
 async function cargarPreguntas() {
   const contenedor = document.querySelector("#preguntas");
@@ -78,5 +81,16 @@ async function cargarPreguntas() {
   iniciarPreguntas();
 }
 
-cargarPreguntas();
+// formulario contactanos Brandon
 
+async function cargarFormulario() {
+  const contenedor = document.querySelector('#formulario-correo');
+  if(!contenedor) return;
+  const respuesta = await fetch('./formulario-correo/formulario-correo.html');
+  contenedor.innerHTML = await respuesta.text();
+  if(typeof iniciarFormulario === "function") iniciarFormulario();
+  
+}
+cargarBanner();     // Alan
+cargarFormulario(); // Brandon
+cargarPreguntas();  // Diana

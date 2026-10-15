@@ -18,7 +18,7 @@
 
 <body>
     
-<section class="fomulario-correo" id="fomulario-correo">
+<section class="fomulario-correo">
     <div class="conversemos">
         <h2>Conversemos</h2>
         <p class="conversemos-desc">Queremos que tu experiencia en SkillUp sea extraordinaria. Puedes escribirnos o llamarnos.</p>
@@ -54,31 +54,31 @@
     </div>
 
 
-    <div class="contacto-card">
-        <form class="form-grid">
+<div class="contacto-card"> <form class="form-grid" id="form-contacto" action="https://formspree.io/f/mzedyrow" method="POST" novalidate >
             <div class="form-group">
                 <label for="nombre">Nombre completo</label>
-                <input type="text" id="nombre" placeholder="Tu nombre" required>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
             </div>
 
             <div class="form-group">
                 <label for="correo">Correo electrónico</label>
-                <input type="email" id="correo" placeholder="tucorreo@ejemplo.com" required>
+                <input type="email" id="correo" name="email" placeholder="tucorreo@ejemplo.com" required>
             </div>
 
             <div class="form-group full-width">
                 <label for="asunto">Asunto</label>
-                <input type="text" id="asunto" placeholder="¿Cómo podemos ayudarte?" required>
+                <input type="text" id="asunto" name="asunto" placeholder="¿Cómo podemos ayudarte?" required>
             </div>
 
             <div class="form-group full-width">
                 <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" rows="4" placeholder="cuéntanos un poco más.." required></textarea>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="cuéntanos un poco más.." required></textarea>
             </div>
 
             <button type="submit" class="btn-enviar">Enviar mensaje</button>
         </form>
     </div>
 </section>
+<script src="./formulario-script.js"></script>
 </body>
 </html>

@@ -1,4 +1,6 @@
 // Seleccionamos todos los elementos de pregunta
+function iniciarPreguntas(){
+    
 const itemsPregunta = document.querySelectorAll('.item-pregunta');
 
 itemsPregunta.forEach(item => {
@@ -9,3 +11,4 @@ itemsPregunta.forEach(item => {
         item.classList.toggle('activo');
     });
 });
+}

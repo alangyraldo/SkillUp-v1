@@ -67,3 +67,16 @@ async function cargarBanner() {
 }
 
 cargarBanner();
+
+async function cargarPreguntas() {
+  const contenedor = document.querySelector("#preguntas");
+  if (!contenedor) return;
+
+  const respuesta = await fetch("./preguntas.html");
+  contenedor.innerHTML = await respuesta.text();
+
+  iniciarPreguntas();
+}
+
+cargarPreguntas();
+
